@@ -15,7 +15,7 @@ public class AuthorizerTest extends BaseTest {
 
     @Test
     public void testIsPermitted() {
-        login("classpath:shiro-authorizer.ini", "zhang", "123");
+        login("classpath:t03/shiro-authorizer.ini", "zhang", "123");
         //判断拥有权限：user:create
         Assert.assertTrue(subject().isPermitted("user1:update"));
         Assert.assertTrue(subject().isPermitted("user2:update"));
@@ -31,7 +31,7 @@ public class AuthorizerTest extends BaseTest {
 
     @Test
     public void testIsPermitted2() {
-        login("classpath:shiro-jdbc-authorizer.ini", "zhang", "123");
+        login("classpath:t03/shiro-jdbc-authorizer.ini", "zhang", "123");
         //判断拥有权限：user:create
         Assert.assertTrue(subject().isPermitted("user1:update"));
         Assert.assertTrue(subject().isPermitted("user2:update"));
