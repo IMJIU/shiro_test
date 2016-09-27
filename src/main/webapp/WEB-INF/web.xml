@@ -5,8 +5,6 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
 
-
-
     <!--- shiro 1.2 -->
     <listener>
         <listener-class>org.apache.shiro.web.env.EnvironmentLoaderListener</listener-class>

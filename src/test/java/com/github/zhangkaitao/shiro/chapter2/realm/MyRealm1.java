@@ -33,7 +33,6 @@ public class MyRealm1 implements Realm {
         if(!"123".equals(password)) {
             throw new IncorrectCredentialsException(); //如果密码错误
         }
-        System.out.println("realm1 ok");
         //如果身份认证验证成功，返回一个AuthenticationInfo实现；
         return new SimpleAuthenticationInfo(username, password, getName());
     }
