@@ -12,7 +12,7 @@
   <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <shiro.version>1.3.2</shiro.version>
-         <spring.version>3.2.3.RELEASE</spring.version>
+         <spring.version>4.2.4.RELEASE</spring.version>
         <log4j.version>1.2.17</log4j.version>
     </properties>
   
@@ -50,6 +50,14 @@
             <artifactId>spring-core</artifactId>
             <version>${spring.version}</version>
         </dependency>
+<!-- https://mvnrepository.com/artifact/jstl/jstl -->
+<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+<dependency>
+    <groupId>javax.servlet</groupId> 
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
+</dependency>
+
 
         <dependency>
             <groupId>org.springframework</groupId>
@@ -127,5 +135,78 @@
   </dependencies>
   <build>
     <finalName>shiro_test</finalName>
+        <resources>
+            <resource>
+                <filtering>false</filtering>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <filtering>false</filtering>
+                <directory>src/test/resources</directory>
+            </testResource>
+        </testResources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.0</version>
+                <configuration>
+                    <port>8080</port>
+                    <path>/shiro</path>
+                    <uriEncoding>UTF-8</uriEncoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>8.1.8.v20121106</version>
+                <configuration>
+                    <webApp>
+                        <contextPath>/shiro</contextPath>
+                    </webApp>
+                    <connectors>
+                        <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+                            <port>10001</port>
+                            <maxIdleTime>60000</maxIdleTime>
+                        </connector>
+                    </connectors>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <encoding>utf8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>yuicompressor-maven-plugin</artifactId>
+                <version>1.3.0</version>
+                <configuration>
+                    <includes>
+                        <include>**/*.js</include>
+                        <include>**/*.css</include>
+                    </includes>
+                </configuration>
+            </plugin>
+            <plugin> 
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <warSourceExcludes>**/*.js,**/*.css</warSourceExcludes>
+                </configuration>
+            </plugin>
+        </plugins>
   </build>
 </project>

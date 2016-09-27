@@ -1,10 +1,11 @@
 package com.github.zhangkaitao.shiro.chapter6.service;
 
-import com.github.zhangkaitao.shiro.chapter6.BaseTest;
-import junit.framework.Assert;
+import java.util.Set;
+
+import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Set;
+import com.github.zhangkaitao.shiro.chapter6.BaseTest;
 
 /**
  * <p>User: Zhang Kaitao
