@@ -1,24 +1,13 @@
 package com.github.zhangkaitao.shiro.chapter4;
 
-import com.alibaba.druid.pool.DruidDataSource;
-import junit.framework.Assert;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.authc.pam.AtLeastOneSuccessfulStrategy;
-import org.apache.shiro.authc.pam.ModularRealmAuthenticator;
-import org.apache.shiro.authz.ModularRealmAuthorizer;
-import org.apache.shiro.authz.permission.WildcardPermissionResolver;
-import org.apache.shiro.codec.Hex;
 import org.apache.shiro.config.IniSecurityManagerFactory;
-import org.apache.shiro.mgt.*;
-import org.apache.shiro.realm.Realm;
-import org.apache.shiro.realm.jdbc.JdbcRealm;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.util.Factory;
 import org.junit.Test;
-import sun.misc.BASE64Encoder;
 
-import java.util.Arrays;
+import junit.framework.Assert;
 
 /**
  * <p>

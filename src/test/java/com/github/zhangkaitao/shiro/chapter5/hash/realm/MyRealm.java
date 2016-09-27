@@ -10,29 +10,28 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 
 /**
- * <p>User: Zhang Kaitao
- * <p>Date: 14-1-27
- * <p>Version: 1.0
+ * <p>
+ * User: Zhang Kaitao
+ * <p>
+ * Date: 14-1-27
+ * <p>
+ * Version: 1.0
  */
 public class MyRealm extends AuthorizingRealm {
 
-    private PasswordService passwordService;
+	private PasswordService passwordService;
 
-    public void setPasswordService(PasswordService passwordService) {
-        this.passwordService = passwordService;
-    }
+	public void setPasswordService(PasswordService passwordService) {
+		this.passwordService = passwordService;
+	}
 
-    @Override
-    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        return null;
-    }
+	@Override
+	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
+		return null;
+	}
 
-    @Override
-    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-
-        return new SimpleAuthenticationInfo(
-                "wu",
-                passwordService.encryptPassword("123"),
-                getName());
-    }
+	@Override
+	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
+		return new SimpleAuthenticationInfo("wu", passwordService.encryptPassword("123"), getName());
+	}
 }

@@ -9,36 +9,36 @@ import org.apache.shiro.util.ThreadContext;
 import org.junit.After;
 
 /**
- * <p>User: Zhang Kaitao
- * <p>Date: 14-1-26
- * <p>Version: 1.0
+ * <p>
+ * User: Zhang Kaitao
+ * <p>
+ * Date: 14-1-26
+ * <p>
+ * Version: 1.0
  */
 public abstract class BaseTest {
 
+	@After
+	public void tearDown() throws Exception {
+		ThreadContext.unbindSubject();// 退出时请解除绑定Subject到线程 否则对下次测试造成影响
+	}
 
+	protected void login(String configFile, String username, String password) {
+		// 1、获取SecurityManager工厂，此处使用Ini配置文件初始化SecurityManager
+		Factory<org.apache.shiro.mgt.SecurityManager> factory = new IniSecurityManagerFactory(configFile);
 
-    @After
-    public void tearDown() throws Exception {
-        ThreadContext.unbindSubject();//退出时请解除绑定Subject到线程 否则对下次测试造成影响
-    }
+		// 2、得到SecurityManager实例 并绑定给SecurityUtils
+		org.apache.shiro.mgt.SecurityManager securityManager = factory.getInstance();
+		SecurityUtils.setSecurityManager(securityManager);
 
-    protected void login(String configFile, String username, String password) {
-        //1、获取SecurityManager工厂，此处使用Ini配置文件初始化SecurityManager
-        Factory<org.apache.shiro.mgt.SecurityManager> factory =
-                new IniSecurityManagerFactory(configFile);
+		// 3、得到Subject及创建用户名/密码身份验证Token（即用户身份/凭证）
+		Subject subject = SecurityUtils.getSubject();
+		UsernamePasswordToken token = new UsernamePasswordToken(username, password);
 
-        //2、得到SecurityManager实例 并绑定给SecurityUtils
-        org.apache.shiro.mgt.SecurityManager securityManager = factory.getInstance();
-        SecurityUtils.setSecurityManager(securityManager);
+		subject.login(token);
+	}
 
-        //3、得到Subject及创建用户名/密码身份验证Token（即用户身份/凭证）
-        Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken(username, password);
-
-        subject.login(token);
-    }
-
-    public Subject subject() {
-        return SecurityUtils.getSubject();
-    }
+	public Subject subject() {
+		return SecurityUtils.getSubject();
+	}
 }

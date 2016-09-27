@@ -1,16 +1,14 @@
 package com.github.zhangkaitao.shiro.chapter5.hash.credentials;
 
-import net.sf.ehcache.CacheManager;
-import net.sf.ehcache.Ehcache;
-import net.sf.ehcache.Element;
+import java.util.concurrent.atomic.AtomicInteger;
+
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.ExcessiveAttemptsException;
-import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
-
-import javax.security.auth.login.AccountLockedException;
-import java.util.concurrent.atomic.AtomicInteger;
+import net.sf.ehcache.CacheManager;
+import net.sf.ehcache.Ehcache;
+import net.sf.ehcache.Element;
 
 /**
  * <p>User: Zhang Kaitao
@@ -18,11 +16,11 @@ import java.util.concurrent.atomic.AtomicInteger;
  * <p>Version: 1.0
  */
 public class RetryLimitHashedCredentialsMatcher extends HashedCredentialsMatcher {
-
+ 
     private Ehcache passwordRetryCache;
 
     public RetryLimitHashedCredentialsMatcher() {
-        CacheManager cacheManager = CacheManager.create(CacheManager.class.getClassLoader().getResource("ehcache.xml"));
+        CacheManager cacheManager = CacheManager.create(CacheManager.class.getClassLoader().getResource("t05/ehcache.xml"));
         passwordRetryCache = cacheManager.getCache("passwordRetryCache");
     }
 

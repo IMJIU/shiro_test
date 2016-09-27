@@ -1,7 +1,7 @@
 package com.github.zhangkaitao.shiro.chapter4;
 
-import com.alibaba.druid.pool.DruidDataSource;
-import junit.framework.Assert;
+import java.util.Arrays;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authc.pam.AtLeastOneSuccessfulStrategy;
@@ -11,11 +11,11 @@ import org.apache.shiro.authz.permission.WildcardPermissionResolver;
 import org.apache.shiro.mgt.DefaultSecurityManager;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.realm.jdbc.JdbcRealm;
-import org.apache.shiro.realm.text.IniRealm;
 import org.apache.shiro.subject.Subject;
+import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Arrays;
+import com.alibaba.druid.pool.DruidDataSource;
 
 /**
  * <p>User: Zhang Kaitao
