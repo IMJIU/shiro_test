@@ -5,13 +5,16 @@ import org.apache.shiro.session.SessionListener;
 import org.apache.shiro.session.SessionListenerAdapter;
 
 /**
- * <p>User: Zhang Kaitao
- * <p>Date: 14-2-8
- * <p>Version: 1.0
+ * <p>
+ * User: Zhang Kaitao
+ * <p>
+ * Date: 14-2-8
+ * <p>
+ * Version: 1.0
  */
 public class MySessionListener2 extends SessionListenerAdapter {
-    @Override
-    public void onStart(Session session) {
-        System.out.println("会话创建：" + session.getId());
-    }
+	@Override
+	public void onStart(Session session) {
+		System.out.println("adapter会话创建：" + session.getId());
+	}
 }
