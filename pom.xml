@@ -25,6 +25,15 @@
     <version>4.12</version>
 </dependency>
   
+  <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
+
+  <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+<dependency>
+    <groupId>org.aspectj</groupId>
+    <artifactId>aspectjweaver</artifactId>
+    <version>1.8.9</version>
+</dependency>
+  
   
   <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 <dependency>

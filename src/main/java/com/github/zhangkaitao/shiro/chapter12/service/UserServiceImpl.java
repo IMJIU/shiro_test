@@ -1,9 +1,14 @@
 package com.github.zhangkaitao.shiro.chapter12.service;
 
+import com.github.zhangkaitao.shiro.chapter12.credentials.RetryLimitHashedCredentialsMatcher;
 import com.github.zhangkaitao.shiro.chapter12.dao.UserDao;
 import com.github.zhangkaitao.shiro.chapter12.entity.User;
 
 import java.util.Set;
+
+import org.apache.shiro.authc.credential.CredentialsMatcher;
+import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * <p>User: Zhang Kaitao
@@ -13,6 +18,8 @@ import java.util.Set;
 public class UserServiceImpl implements UserService {
 
     private UserDao userDao;
+    @Autowired
+    private RetryLimitHashedCredentialsMatcher credentialsMatcher;
 
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;

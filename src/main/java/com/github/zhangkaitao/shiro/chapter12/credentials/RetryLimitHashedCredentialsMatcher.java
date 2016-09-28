@@ -6,6 +6,7 @@ import org.apache.shiro.authc.ExcessiveAttemptsException;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheManager;
+import org.apache.shiro.util.ByteSource;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -43,4 +44,13 @@ public class RetryLimitHashedCredentialsMatcher extends HashedCredentialsMatcher
         }
         return matches;
     }
+    
+    public String toPwd(char[] pass,ByteSource salt,Integer it){
+    	return hashProvidedCredentials(pass , salt,it).toString();
+    }
+    
+    public static void main(String[] args) {
+		System.out.println(ByteSource.Util.bytes("zhang"+"29df4ff5d30ff9396217c7453aff32a7"));
+	}
+
 }

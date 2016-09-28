@@ -6,6 +6,10 @@
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
+    <!-- Shiro生命周期处理器-->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+
     <!-- 缓存管理器 使用Ehcache实现 -->
     <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
         <property name="cacheManagerConfigFile" value="classpath:t12/ehcache.xml"/>
@@ -65,7 +69,12 @@
 
     <!-- 安全管理器 -->
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
-        <property name="realm" ref="userRealm"/>
+        <property name="realms">
+            <list>
+                <ref bean="userRealm"/>
+            </list>
+        </property>
+        <!-- <property name="realm" ref="userRealm"/> -->
         <property name="sessionManager" ref="sessionManager"/>
         <property name="cacheManager" ref="cacheManager"/>
     </bean>
@@ -82,16 +91,19 @@
         <property name="passwordParam" value="password"/>
         <property name="loginUrl" value="/login.jsp"/>
     </bean>
-
+	
+	    <!-- 基于Form表单的身份验证过滤器 -->
+    <bean id="customerFilter" class="com.github.zhangkaitao.shiro.chapter12.CustomerFilter"/>
+	
     <!-- Shiro的Web过滤器 -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
         <property name="loginUrl" value="/login.jsp"/>
         <property name="unauthorizedUrl" value="/unauthorized.jsp"/>
         <property name="filters">
-            <util:map>
+             <util:map>
                 <entry key="authc" value-ref="formAuthenticationFilter"/>
-            </util:map>
+            </util:map> 
         </property>
         <property name="filterChainDefinitions">
             <value>
@@ -104,7 +116,5 @@
         </property>
     </bean>
 
-    <!-- Shiro生命周期处理器-->
-    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
 
 </beans>

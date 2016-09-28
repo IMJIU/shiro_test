@@ -57,7 +57,9 @@ public class UserRealm extends AuthorizingRealm {
         );
         return authenticationInfo;
     }
-
+    public static void main(String[] args) {
+    	System.out.println(ByteSource.Util.bytes("452edf2060626191c028a957a0e9b03b"));
+	}
     @Override
     public void clearCachedAuthorizationInfo(PrincipalCollection principals) {
         super.clearCachedAuthorizationInfo(principals);
