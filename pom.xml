@@ -18,6 +18,29 @@
   
   <dependencies>
   
+  
+  <!-- https://mvnrepository.com/artifact/org.jasig.cas/cas-server-core -->
+<dependency>
+    <groupId>org.jasig.cas</groupId>
+    <artifactId>cas-server-core</artifactId>
+    <version>4.0.0-RC3</version><!-- 4.2.6  4.0.0-RC3-->
+    <exclusions>  
+            <exclusion>  
+               <groupId>org.springframework</groupId>
+               <artifactId>spring-core</artifactId>
+            </exclusion>  
+             <exclusion>  
+               <groupId>org.springframework</groupId>
+               <artifactId>spring-tx</artifactId>
+            </exclusion>  
+            <exclusion> 
+                <groupId>org.springframework</groupId>
+            	<artifactId>spring-beans</artifactId>
+            </exclusion>  
+        </exclusions>  
+</dependency>
+  
+  
   <!-- https://mvnrepository.com/artifact/junit/junit -->
 <dependency>
     <groupId>junit</groupId>

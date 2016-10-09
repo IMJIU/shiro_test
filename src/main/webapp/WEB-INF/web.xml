@@ -10,8 +10,8 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            classpath:t13/spring-beans.xml,
-            classpath:t13/spring-shiro-web.xml
+            classpath:t14/spring-beans.xml,
+            classpath:t14/spring-shiro-web.xml
         </param-value>
     </context-param>
     <listener>
