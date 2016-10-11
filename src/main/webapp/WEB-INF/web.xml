@@ -12,7 +12,7 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            classpath:t16/spring-config.xml
+            classpath:t19/spring-config.xml
         </param-value>
     </context-param>
     <listener>
@@ -67,7 +67,7 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:t16/spring-mvc.xml</param-value>
+            <param-value>classpath:t19/spring-mvc.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
         <async-supported>true</async-supported>

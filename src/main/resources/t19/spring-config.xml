@@ -10,7 +10,7 @@
           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:property-placeholder location="classpath:resources.properties"/>
+    <context:property-placeholder location="classpath:t19/resources.properties"/>
 
     <!-- 扫描注解Bean -->
     <context:component-scan base-package="com.github.zhangkaitao.shiro.chapter19">
@@ -83,6 +83,6 @@
 
     <bean class="com.github.zhangkaitao.shiro.spring.SpringUtils"/>
 
-    <import resource="classpath:spring-config-cache.xml"/>
-    <import resource="classpath:spring-config-shiro.xml"/>
+    <import resource="classpath:t19/spring-config-cache.xml"/>
+    <import resource="classpath:t19/spring-config-shiro.xml"/>
 </beans>
