@@ -16,7 +16,6 @@ import java.util.concurrent.atomic.AtomicInteger;
  * <p>Version: 1.0
  */
 public class RetryLimitHashedCredentialsMatcher extends HashedCredentialsMatcher {
-
     private Ehcache passwordRetryCache;
 
     public RetryLimitHashedCredentialsMatcher() {
