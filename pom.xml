@@ -15,6 +15,13 @@
             <version>8.1.8.v20121106</version>
             <scope>test</scope>
         </dependency>
+		        <!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-jsp -->
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-jsp</artifactId>
+		    <version>8.1.19.v20160209</version>
+		</dependency>
+		        
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-webapp</artifactId>
